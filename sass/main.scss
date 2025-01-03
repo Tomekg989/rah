@@ -1,0 +1,101 @@
+@import './colors';
+@import './components';
+@import './mixin' ;
+*::before,*,*::after{
+ box-sizing: border-box;
+ padding: 0;margin: 0;
+}
+html{
+ font-size: 62.5%;
+ scroll-behavior: smooth;
+
+}
+body{
+ font-family: 'Open Sans',sans-serif;
+ background-color: #333;
+}
+.burger-btn{
+ position: fixed;
+ top: 20px;right: 20px;
+ padding: 1em;
+ background: none;
+ border: 1px solid transparent;
+ cursor: pointer;
+ z-index: 100;
+ &:focus{
+  outline:none;
+  border: 1px solid rgba(255,255,255,.5);
+ }
+ &:hover{
+  .burger-btn__bars::before,.burger-btn__bars::after{
+   width: 40px;
+  }
+ }
+ &__box{
+  position: relative;
+  width: 40px;
+  height: 30px;
+
+ }
+ &__bars,&__bars::before,&__bars::after{
+  position: relative;
+  display: block;
+  right: 0;
+  height: 3px;
+  content: '';
+  background-color: $pure-white;
+  transition: width .3s;
+ }
+ .burger-btn__bars{
+  width: 100%;
+  &::after{
+   top: 11px;
+   width: 25px;
+   
+  }
+  &::before{
+   top: 27px;
+   width: 10px;
+    transition-delay: .1s;
+  }
+ }
+}
+//header
+.header{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2em;
+  height: 75vh;
+  text-align: center;
+  color: $pure-white;
+  @include heroImages('../img/small.jpg');
+  background-attachment: scroll;
+  &__heading{
+     font-family: 'Dancing Script',cursive;
+     font-size: 4.8rem;
+     font-weight: 300;
+  }
+  &__text{
+    font-size: 1.4rem;
+  }
+  &__btn{
+    background: $pure-white;
+    margin-top: 2em;
+    padding: 0.8em 1.6em;
+    font-size: 1.4rem;
+    border: none;
+    border-radius: 8px;
+    color:$dark;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  &::before{
+    background-color: $light-white;
+
+  }
+
+}
